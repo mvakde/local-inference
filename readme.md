@@ -32,8 +32,8 @@ Here’s how the repository is organized:
 ├── requirements.txt           # All the Python dependencies for the project.
 ├── misc/                      # Miscellaneous files for reference.
 │   └── txt-generation allowed classes.txt
-├── models/                    # Directory where models are organized.
-│   └── huggingface/           # Predefined models from Hugging Face. (TO GET THE MODELS, RUN download-models.ipynb)
+├── models/                    # RUN download-models.ipynb TO CREATE THIS FOLDER
+│   └── huggingface/           # Predefined models from Hugging Face. 
 │       ├── bert-large-uncased-whole-word-masking_mlm/
 │       ├── bert-large-uncased-whole-word-masking-finetuned-squad_qa/
 │       ├── gpt2/
