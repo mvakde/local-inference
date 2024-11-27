@@ -61,6 +61,7 @@ Here’s how the repository is organized:
 - **Python 3.12**
 - **Pytorch installed globally**
 - **Apple M-series Mac (e.g., M1, M2)**
+Note: I run the notebooks locally on vscode. There are other ways to run the notebooks, but you might have to make a few modifications
 
 ### Installation
 
@@ -78,17 +79,17 @@ Follow these steps to set up the environment:
    ```
 
 3. **Activate the virtual environment**:
-   - On macOS/Linux:
-     ```bash
-     source env/bin/activate
-     ```
+   On macOS/Linux:
+   ```bash
+   source env/bin/activate
+   ```
 
 4. **Install the required packages**:
    ```bash
    pip install -r requirements.txt
    ```
 5. (optional) **Allow system wide packages**
-   - If you need to use system-wide packages (eg: pytorch is installed globally), then open the configuration file (eg: pyvenv.cfg) and ensure this line exists:
+   If you need to use system-wide packages (eg: pytorch is installed globally), then open the configuration file (eg: pyvenv.cfg) and ensure this line exists:
    ```bash
    include-system-site-packages = true
    ```
