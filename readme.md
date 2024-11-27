@@ -52,7 +52,7 @@ Here’s how the repository is organized:
 - **Python 3.12**
 - **pip or equivalent package manager**
 - **Apple M-series Mac (e.g., M1, M2)**  
-- 
+
 Note: I run the notebooks locally on vscode. There are other ways to run the notebooks, but you might have to make a few modifications
 
 ### Installation
