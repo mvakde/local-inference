@@ -2,24 +2,14 @@
 
 ## Overview
 
-This project is a guide and toolkit for running advanced machine learning models such as **BERT**, **T5**, and **GPT-2** directly on your Apple M-series laptop. The goal is to make it easy for you to experiment with these models without needing expensive cloud services.
+This project is a guide and toolkit for running language models such as **BERT**, **T5**, and **GPT-2** directly on your Apple M-series laptop. The goal is to make it easy for you to experiment with these models without needing expensive cloud services.
 
 ### Why is this important?
 1. **Cost-Efficient**: Avoid cloud costs by running models locally.
 2. **Data Privacy**: Keep your data on your device without uploading it to external servers.
 3. **Learning Opportunity**: Understand how model inference works and customize the code as you grow.
 
-The repository starts with simple scripts that use Hugging Face’s powerful `pipeline()` function. This abstracts away a lot of complexity and lets you focus on results. As the project grows, more advanced and customizable implementations will be added, giving you a gradual path to learn and control the process.
-
----
-
-## What This Repository Offers
-
-1. **Ready-to-Run Scripts**: Start running BERT, T5, and GPT-2 models immediately with simple scripts and Jupyter notebooks.
-2. **Future Growth**: The repository is designed for expansion:
-   - Advanced implementations using Hugging Face’s `transformers` library.
-   - Fully customizable PyTorch scripts for greater control and optimization.
-3. **Organization**: A clear project structure that allows you to easily navigate scripts, models, and future additions.
+The repository starts with simple scripts that use Hugging Face’s powerful `pipeline()` function. This abstracts away a lot of complexity and lets you focus on results. As the project grows, more customizable implementations will be added, giving you a gradual path to learn and control the process.
 
 ---
 
@@ -29,11 +19,11 @@ Here’s how the repository is organized:
 
 ```plaintext
 .
-├── requirements.txt           # All the Python dependencies for the project.
-├── misc/                      # Miscellaneous files for reference.
+├── requirements.txt           
+├── misc/                      
 │   └── txt-generation allowed classes.txt
-├── models/                    # RUN download-models.ipynb TO CREATE THIS FOLDER
-│   └── huggingface/           # Predefined models from Hugging Face. 
+├── models/                    # CREATE THIS FOLDER BY RUNNING download-models.ipynb
+│   └── huggingface/           
 │       ├── bert-large-uncased-whole-word-masking_mlm/
 │       ├── bert-large-uncased-whole-word-masking-finetuned-squad_qa/
 │       ├── gpt2/
@@ -60,8 +50,9 @@ Here’s how the repository is organized:
 ### Prerequisites
 
 - **Python 3.12**
-- **Pytorch installed globally**
-- **Apple M-series Mac (e.g., M1, M2)**
+- **pip or equivalent package manager**
+- **Apple M-series Mac (e.g., M1, M2)**  
+- 
 Note: I run the notebooks locally on vscode. There are other ways to run the notebooks, but you might have to make a few modifications
 
 ### Installation
@@ -70,28 +61,34 @@ Follow these steps to set up the environment:
 
 1. **Clone the repository**:
    ```bash
+   # Run your code on the terminal
+   # Do this in your project folder
    git clone https://github.com/yourusername/your-repo.git
    cd your-repo
    ```
 
 2. **Create a virtual environment**:
    ```bash
+   # In the same project folder
    python3 -m venv env
    ```
 
 3. **Activate the virtual environment**:
    On macOS/Linux:
    ```bash
+   # In the same project folder
    source env/bin/activate
    ```
 
 4. **Install the required packages**:
    ```bash
+   # In the same project folder
    pip install -r requirements.txt
    ```
-5. (optional) **Allow system wide packages**
-   If you need to use system-wide packages (eg: pytorch is installed globally), then open the configuration file (eg: pyvenv.cfg) and ensure this line exists:
+5. (optional, not recommended) **Allow system wide packages**
    ```bash
+   # This is only required if you already have pytorch and other libraries installed globally and don't want to install it again
+   # open the configuration file (eg: pyvenv.cfg) and add this line if it doesn't exist:
    include-system-site-packages = true
    ```
 
@@ -108,20 +105,22 @@ Example:
 - `t5.ipynb`: Perform text-to-text tasks like summarization or translation with T5.
 
 ### Step 2: Run Inference
-1. Open the desired `.ipynb` file using VS Code, Jupyter Notebook or Jupyter Lab.
+1. Open the desired `.ipynb` file using VS Code (recommended)  
+   You can also open it on Jupyter Notebook by running the following command (not recommended)
    ```bash
-   jupyter notebook # or just open it inside VS Code
+   jupyter notebook # or ignore this and just open the notebook inside VS Code
    ```
 2. Follow the step-by-step instructions in the notebook to load a model and perform inference.
 
 ### Step 3: Customize
-You can modify the scripts to try out different models by editing the `model_name` and input data.
+You can modify the scripts to play around.
 
 ---
 
 ## Examples
 
-Here are some things you can do right away. (This will download the relevant models in a cache folder):
+Here are some things you can do right away:  
+(This will download the relevant models in a cache folder if you don't already have them)
 
 ### Text Classification with BERT
 Use the `bert.ipynb` notebook to classify text into predefined categories.
@@ -149,7 +148,6 @@ This repository is a work in progress. Here’s what’s coming next:
 
 1. **Direct Use of the `transformers` Library**:
    - Scripts without the `pipeline()` abstraction.
-   - Custom tokenization, model loading, and inference.
    - These will be added to `scripts/transformers-manual/`.
 
 2. **PyTorch Implementations**:
