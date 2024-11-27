@@ -1,4 +1,4 @@
-# Running Machine Learning Models Locally on Apple M-Series Laptops
+# Running Language Models Locally on Apple M-Series Laptops
 
 ## Overview
 
@@ -33,7 +33,7 @@ Here’s how the repository is organized:
 ├── misc/                      # Miscellaneous files for reference.
 │   └── txt-generation allowed classes.txt
 ├── models/                    # Directory where models are organized.
-│   └── huggingface/           # Predefined models from Hugging Face.
+│   └── huggingface/           # Predefined models from Hugging Face. (TO GET THE MODELS, RUN download-models.ipynb)
 │       ├── bert-large-uncased-whole-word-masking_mlm/
 │       ├── bert-large-uncased-whole-word-masking-finetuned-squad_qa/
 │       ├── gpt2/
@@ -43,13 +43,14 @@ Here’s how the repository is organized:
 ├── scripts/                   # Contains scripts for running models.
 │   ├── transformers-pipeline/ # Easy-to-use pipeline-based scripts.
 │   │   ├── bert.ipynb
+│   │   ├── download-models.ipynb
 │   │   ├── gpt2.ipynb
 │   │   └── t5.ipynb
 │   ├── transformers-manual/   # To be filled with more advanced code using Hugging Face directly.
 │   └── pytorch/               # To be filled with custom PyTorch scripts.
 ```
 
-- **`models`**: Contains the different models you can experiment with, organized by type.
+- **`models`**: Contains the different models you can experiment with, organized by type. (Note that the models folder is not on github because of how large it is. I have created a download script to download the relevant models locally)
 - **`scripts`**: Contains all the code for running models. Starts simple with `transformers-pipeline` scripts and will grow into more advanced implementations.
 
 ---
@@ -107,9 +108,9 @@ Example:
 - `t5.ipynb`: Perform text-to-text tasks like summarization or translation with T5.
 
 ### Step 2: Run Inference
-1. Open the desired `.ipynb` file using Jupyter Notebook or Jupyter Lab.
+1. Open the desired `.ipynb` file using VS Code, Jupyter Notebook or Jupyter Lab.
    ```bash
-   jupyter notebook
+   jupyter notebook # or just open it inside VS Code
    ```
 2. Follow the step-by-step instructions in the notebook to load a model and perform inference.
 
@@ -120,14 +121,14 @@ You can modify the scripts to try out different models by editing the `model_nam
 
 ## Examples
 
-Here are some things you can do right away:
+Here are some things you can do right away. (This will download the relevant models in a cache folder):
 
 ### Text Classification with BERT
 Use the `bert.ipynb` notebook to classify text into predefined categories.
 
 ```python
 from transformers import pipeline
-classifier = pipeline("text-classification", model= path_to_models + "bert-large-uncased-whole-word-masking")
+classifier = pipeline("text-classification", model= "bert-large-uncased-whole-word-masking")
 print(classifier("I climbed the highest peak in the world!"))
 ```
 
@@ -156,8 +157,11 @@ This repository is a work in progress. Here’s what’s coming next:
    - More flexibility and control over model behavior.
    - These will be added to `scripts/pytorch/`.
 
-3. **Performance Optimization**:
-   - Improve script efficiency to better utilize Apple’s M-series hardware.
+3. **Training scripts**:
+   - Write scripts to pre-train or fine-tune language models, 
+
+4. **Support for other devices**:
+   - Run the scripts on linux
 
 ---
 
